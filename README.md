@@ -1,1 +1,1 @@
-[[Download Latest version](https://shields.io)](https://github.com)
+[![**Download Latest version**](https://shields.io)](https://github.com)
