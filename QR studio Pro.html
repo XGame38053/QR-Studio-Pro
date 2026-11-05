@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Studio Pro</title>
+
+<script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+
+<style>
+
+:root {
+    --accent: #8b9cff;
+    --accent2: #c18cff;
+    --text: #ffffff;
+    --muted: #a6aec8;
+    --glass: rgba(255,255,255,.075);
+    --border: rgba(255,255,255,.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(circle at 15% 15%, #403a82 0%, transparent 35%),
+        radial-gradient(circle at 85% 70%, #593b83 0%, transparent 35%),
+        linear-gradient(135deg,#080b19,#15172e,#101326);
+
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 50% 0%,
+        rgba(130,160,255,.12),transparent 55%);
+}
+
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+
+    background: rgba(255,255,255,.055);
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.badge {
+    font-size: 11px;
+    padding: 7px 13px;
+    border-radius: 30px;
+
+    background: rgba(139,156,255,.17);
+    border: 1px solid rgba(139,156,255,.35);
+
+    color: #c4ceff;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 35px 25px;
+}
+
+.hero {
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin: 0 0 8px;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    gap: 22px;
+    align-items: start;
+}
+
+.glass {
+    background: var(--glass);
+
+    backdrop-filter: blur(28px) saturate(150%);
+    -webkit-backdrop-filter: blur(28px) saturate(150%);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.12);
+
+    padding: 24px;
+
+    margin-bottom: 20px;
+
+    transition: .25s;
+}
+
+.glass:hover {
+    border-color: rgba(255,255,255,.22);
+}
+
+h2 {
+    font-size: 17px;
+    margin: 0 0 22px;
+}
+
+label {
+    display: block;
+    color: #c3c9df;
+    font-size: 13px;
+    margin-bottom: 9px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 13px;
+
+    color: white;
+
+    background: rgba(0,0,0,.22);
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    margin-bottom: 18px;
+
+    transition: .2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent);
+
+    box-shadow: 0 0 15px rgba(139,156,255,.2);
+}
+
+select option {
+    background: #20233e;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+input[type=color] {
+    height: 48px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+input[type=range] {
+    padding: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+input[type=file] {
+    font-size: 12px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+button {
+    border: 1px solid rgba(255,255,255,.12);
+
+    padding: 13px 18px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg,#7188ff,#9c72f5);
+font-weight: 650;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 25px rgba(120,130,255,.3);
+}
+
+.secondary {
+    background: rgba(255,255,255,.09);
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.button-row button {
+    flex: 1;
+}
+
+.preview-panel {
+    position: sticky;
+    top: 105px;
+    text-align: center;
+}
+
+.qr-stage {
+    display: inline-flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    background: white;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    max-width: 100%;
+
+    margin: 15px auto;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.3);
+}
+
+#qrPreview {
+    max-width: 100%;
+}
+
+#qrPreview canvas,
+#qrPreview svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.caption {
+    color: #171717;
+    font-weight: bold;
+    margin-top: 13px;
+    font-size: 15px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 12px;
+    margin: 15px 0;
+}
+
+.full {
+    width: 100%;
+}
+
+.preset {
+    background: rgba(255,255,255,.08);
+    border: 1px solid var(--border);
+    padding: 11px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.preset-row {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 9px;
+}
+
+footer {
+    text-align: center;
+    color: #777f9f;
+    padding: 30px;
+    font-size: 12px;
+}
+
+@media(max-width:900px) {
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-panel {
+        position: static;
+    }
+
+}
+
+@media(max-width:500px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        QR <span>STUDIO <span>PRO</span>
+    </div>
+
+    <div class="badge">
+        QR Studio Pro 1.0
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="hero">
+
+        <h1>Create Something Unique.</h1>
+
+        <p>
+            Design beautiful, customized QR codes
+            with your own personal style.
+        </p>
+
+    </div>
+
+
+    <div class="layout">
+
+        <div>
+
+            <section class="glass">
+
+                <h2>✏️ QR Content</h2>
+
+                <label>Text or URL</label>
+
+                <textarea id="qrText">https://google.com</textarea>
+
+                <label>Caption</label>
+
+                <input id="caption"
+                placeholder="ENTER YOUR CAPTION">
+
+            </section>
+
+
+            <section class="glass">
+
+                <h2>🎨 Colors & Appearance</h2>
+
+                <div class="grid">
+
+                    <div>
+                        <label>Primary Color</label>
+                        <input type="color"
+                        id="color1"
+                        value="#586fff">
+                    </div>
+
+                    <div>
+                        <label>Secondary Color</label>
+                        <input type="color"
+                        id="color2"
+                        value="#b66cff">
+                    </div>
+
+                    <div>
+                        <label>Background Color</label>
+                        <input type="color"
+                        id="background"
+                        value="#ffffff">
+                    </div>
+
+                    <div>
+                        <label>Gradient</label>
+
+                        <select id="gradient">
+                            <option value="yes">Enabled</option>
+                            <option value="no">Disabled</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <label>Dot Style</label>
+
+                <select id="dotStyle">
+
+                    <option value="square">Square</option>
+                    <option value="dots">Dots</option>
+<option value="rounded">Rounded</option>
+                    <option value="classy">Classy</option>
+                    <option value="classy-rounded">Classy Rounded</option>
+                    <option value="extra-rounded">Extra Rounded</option>
+
+                </select>
+
+                <label>Corner Style</label>
+
+                <select id="cornerStyle">
+
+                    <option value="square">Square</option>
+                    <option value="extra-rounded">Extra Rounded</option>
+                    <option value="dot">Dot</option>
+
+                </select>
+
+                <label>
+                    QR Size: <span id="sizeValue">300</span> px
+                </label>
+
+                <input type="range"
+                id="size"
+                min="150"
+                max="700"
+                value="300">
+
+            </section>
+
+
+            <section class="glass">
+
+                <h2>✨ Design Presets</h2>
+
+                <div class="preset-row">
+
+                    <button class="preset"
+                    onclick="setPreset('purple')">
+                        🟣 Purple
+                    </button>
+
+                    <button class="preset"
+                    onclick="setPreset('ocean')">
+                        🌊 Ocean
+                    </button>
+
+                    <button class="preset"
+                    onclick="setPreset('neon')">
+                        💚 Neon
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <section class="glass">
+
+                <h2>🖼️ Center Logo</h2>
+
+                <label>Upload Your Image</label>
+
+                <input type="file"
+                id="logo"
+                accept="image/*">
+
+                <label>
+                    Logo Size:
+                    <span id="logoSizeValue">25</span>%
+                </label>
+
+                <input type="range"
+                id="logoSize"
+                min="10"
+                max="40"
+                value="25">
+
+                <button class="secondary full"
+                onclick="removeLogo()">
+
+                    Remove Logo
+
+                </button>
+
+            </section>
+
+
+            <section class="glass">
+
+                <h2>📥 Export QR Code</h2>
+
+                <div class="button-row">
+
+                    <button onclick="downloadPNG()">
+                        Download PNG
+                    </button>
+
+                    <button class="secondary"
+                    onclick="downloadSVG()">
+                        Download SVG
+                    </button>
+
+                </div>
+
+                <br>
+
+                <button class="secondary full"
+                onclick="resetSettings()">
+
+                    ↻ Reset Settings
+
+                </button>
+
+                <div class="status" id="status">
+                    Ready to create.
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <div>
+
+            <section class="glass preview-panel">
+
+                <h2>👁️ Live Preview</h2>
+
+                <div class="qr-stage"
+                id="qrStage">
+
+                    <div id="qrPreview"></div>
+
+                    <div class="caption"
+                    id="captionPreview"></div>
+
+                </div>
+
+                <div class="status">
+                    Your QR code updates automatically.
+                </div>
+
+                <button class="full"
+                onclick="downloadPNG()">
+
+                    ↓ Download QR Code
+
+                </button>
+
+                <br><br>
+
+                <button class="secondary full"
+                onclick="copyContent()">
+
+                    Copy QR Content
+
+                </button>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+
+    QR STUDIO PRO 1.0
+
+</footer>
+
+
+<script>
+
+if (typeof QRCodeStyling === "undefined") {
+
+    document.getElementById("status").textContent =
+        "QR library failed to load. Please check your internet connection.";
+
+    throw new Error("QRCodeStyling library unavailable.");
+
+}
+
+
+let logoData = null;
+
+
+const qr = new QRCodeStyling({
+
+    width: 300,
+    height: 300,
+
+    type: "canvas",
+
+    data: "https://google.com",
+
+    margin: 12,
+
+    dotsOptions: {
+        color: "#586fff",
+        type: "rounded"
+    },
+
+    backgroundOptions: {
+        color: "#ffffff"
+    },
+
+    cornersSquareOptions: {
+        color: "#586fff",
+        type: "extra-rounded"
+    },
+
+    cornersDotOptions: {
+        color: "#586fff",
+        type: "dot"
+    },
+
+    imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 5,
+        imageSize: .25,
+        hideBackgroundDots: true
+    }
+
+});
+
+
+qr.append(document.getElementById("qrPreview"));
+
+
+function getSettings() {
+
+    return {
+
+        text: document.getElementById("qrText").value,
+
+        color1: document.getElementById("color1").value,
+
+        color2: document.getElementById("color2").value,
+
+        background: document.getElementById("background").value,
+
+        gradient: document.getElementById("gradient").value,
+
+        dotStyle: document.getElementById("dotStyle").value,
+
+        cornerStyle: document.getElementById("cornerStyle").value,
+
+        size: Number(document.getElementById("size").value),
+
+        caption: document.getElementById("caption").value,
+
+        logoSize: Number(document.getElementById("logoSize").value)
+
+    };
+
+}
+
+
+function updateQR() {
+
+    const s = getSettings();
+
+    document.getElementById("sizeValue").textContent = s.size;
+
+    document.getElementById("logoSizeValue").textContent = s.logoSize;
+
+    document.getElementById("captionPreview").textContent = s.caption;
+
+    const dots = {
+
+        type: s.dotStyle,
+
+        color: s.color1
+
+    };
+
+
+    if (s.gradient === "yes") {
+
+        dots.gradient = {
+
+            type: "linear",
+
+            rotation: 45,
+
+            colorStops: [
+
+                {offset: 0, color: s.color1},
+
+                {offset: 1, color: s.color2}
+
+            ]
+
+        };
+
+    }
+
+
+    qr.update({
+
+        width: s.size,
+
+        height: s.size,
+
+        data: s.text || " ",
+
+        dotsOptions: dots,
+
+        backgroundOptions: {
+
+            color: s.background
+
+        },
+
+        cornersSquareOptions: {
+
+            color: s.color1,
+
+            type: s.cornerStyle
+
+        },
+
+        cornersDotOptions: {
+
+            color: s.color1,
+
+            type: "dot"
+
+        },
+
+        image: logoData || undefined,
+
+        imageOptions: {
+
+            crossOrigin: "anonymous",
+
+            margin: 5,
+
+            imageSize: s.logoSize / 100,
+
+            hideBackgroundDots: true
+
+        }
+
+    });
+
+
+    document.getElementById("status").textContent =
+        "Design updated successfully.";
+
+}
+
+
+document.querySelectorAll(
+    "input, textarea, select"
+).forEach(el => {
+
+    el.addEventListener("input", updateQR);
+
+    el.addEventListener("change", updateQR);
+
+});
+
+
+document.getElementById("logo").addEventListener(
+    "change",
+    function(e) {
+
+        const file = e.target.files[0];
+
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+
+            alert("Please select an image.");
+
+            return;
+
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+
+            logoData = event.target.result;
+
+            updateQR();
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+function removeLogo() {
+
+    logoData = null;
+
+    document.getElementById("logo").value = "";
+
+    updateQR();
+
+}
+function setPreset(name) {
+
+    const presets = {
+
+        purple: {
+            c1:"#8b5cf6",
+            c2:"#ec4899",
+            bg:"#ffffff"
+        },
+
+        ocean: {
+            c1:"#06b6d4",
+            c2:"#2563eb",
+            bg:"#ffffff"
+        },
+
+        neon: {
+            c1:"#00ff99",
+            c2:"#00ccff",
+            bg:"#101820"
+        }
+
+    };
+
+
+    const p = presets[name];
+
+    document.getElementById("color1").value = p.c1;
+
+    document.getElementById("color2").value = p.c2;
+
+    document.getElementById("background").value = p.bg;
+
+    document.getElementById("gradient").value = "yes";
+
+    updateQR();
+
+}
+
+
+async function copyContent() {
+
+    const text = document.getElementById("qrText").value;
+
+    try {
+
+        await navigator.clipboard.writeText(text);
+
+        document.getElementById("status").textContent =
+            "Content copied to clipboard!";
+
+    } catch {
+
+        alert("Clipboard access is unavailable.");
+
+    }
+
+}
+
+
+async function downloadPNG() {
+
+    try {
+
+        document.getElementById("status").textContent =
+            "Generating PNG...";
+
+        const blob = await qr.getRawData("png");
+
+        const img = await createImageBitmap(blob);
+
+        const s = getSettings();
+
+        const padding = 35;
+
+        const captionHeight = s.caption ? 65 : 20;
+
+        const canvas = document.createElement("canvas");
+
+        canvas.width = img.width + padding * 2;
+
+        canvas.height =
+            img.height + padding * 2 + captionHeight;
+
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = s.background;
+
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+
+        ctx.drawImage(img,padding,padding);
+
+
+        if (s.caption) {
+
+            ctx.fillStyle = s.color1;
+
+            ctx.font = "bold 22px Arial";
+
+            ctx.textAlign = "center";
+
+            ctx.fillText(
+                s.caption,
+                canvas.width/2,
+                img.height + padding + 40
+            );
+
+        }
+
+
+        canvas.toBlob(blob => {
+
+            if (!blob) {
+
+                alert("PNG export failed.");
+
+                return;
+
+            }
+
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+
+            a.href = url;
+
+            a.download = "QR_Studio_Code.png";
+
+            a.click();
+
+            setTimeout(() => URL.revokeObjectURL(url),1000);
+
+            document.getElementById("status").textContent =
+                "PNG exported successfully!";
+
+        },"image/png");
+
+
+    } catch(error) {
+
+        alert("Export error: " + error.message);
+
+    }
+
+}
+
+
+function downloadSVG() {
+
+    qr.download({
+
+        name: "QR_Studio_Code",
+
+        extension: "svg"
+
+    });
+
+    document.getElementById("status").textContent =
+        "SVG export started.";
+
+}
+
+
+function resetSettings() {
+
+    document.getElementById("qrText").value =
+        "https://google.com";
+
+    document.getElementById("caption").value = "";
+
+    document.getElementById("color1").value = "#586fff";
+
+    document.getElementById("color2").value = "#b66cff";
+
+    document.getElementById("background").value = "#ffffff";
+
+    document.getElementById("gradient").value = "yes";
+
+    document.getElementById("dotStyle").value = "rounded";
+
+    document.getElementById("cornerStyle").value = "extra-rounded";
+
+    document.getElementById("size").value = 300;
+
+    document.getElementById("logoSize").value = 25;
+
+    removeLogo();
+
+    updateQR();
+
+}
+
+
+updateQR();
+
+</script>
+
+</body>
+</html>
