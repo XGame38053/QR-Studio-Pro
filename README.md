@@ -5,6 +5,7 @@
     </div>
   </a>
 </div>
+
 <p align="center">
   <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/tag/v1.2">
     <img src="https://img.shields.io/github/v/release/XGame38053/QR-Studio-Pro?style=flat-square" alt="Latest Release" />
