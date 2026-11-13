@@ -16,3 +16,6 @@
                                   <!-- Change this to v(current version)⬇️, file name⬇️ -->
 <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/download/v1.2/QR-studio-Pro.html">
     <img src="https://img.shields.io/badge/Download-HTML-brightgreen?style=for-the-badge-logoSize10" />
+</a>
+<a href="https://github.com/XGame38053/QR-Studio-Pro/releases/download/v1.2/QR-studio-Pro.html">
+    <img src="https://img.shields.io/badge/-Website-blue?style=for-the-badge" />
