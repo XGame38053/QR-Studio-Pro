@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="System files/github.logo.png" alt="Qr Logo" width="128" height="128" />
+  <img src="docs
+    /github.logo.png" alt="Qr Logo" width="128" height="128" />
 </p>
 <h1 align="center">Qr Studio Pro</h1>
 <p align="center">
