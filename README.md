@@ -1,9 +1,8 @@
 <p align="center">
   <img src="resources/build/icons/png/512x512.png" alt="Voxel Logo" width="128" height="128" />
 </p>
-<h1 align="center">Voxel</h1>
+<h1 align="center">Qr Studio Pro</h1>
 <p align="center">
-  <strong>The open-source Roblox desktop client</strong>
 </p>
 <div align="center">
   <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/latest" style="text-decoration: none;">
