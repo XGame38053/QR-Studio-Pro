@@ -19,6 +19,6 @@
   <img src="https://img.shields.io/github/downloads/XGame38053/QR-Studio-Pro/total?style=circle-square&label=downloads" alt="Total Downloads" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows, MacOS, Linux-blue?style=circle-square" alt="Windows, MacOS, Linux" />
-</a>
+</p>
 <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/tag/v1.2">
-    <img src="https://img.shields.io/badge/HTML-Download-brightgreen?style=for-the-badge-logoSize10" />
+    <img src="https://img.shields.io/badge/Download-brightgreen?style=for-the-badge-logoSize10" />
