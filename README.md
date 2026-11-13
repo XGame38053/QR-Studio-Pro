@@ -19,3 +19,6 @@
 </a>
 <a href="https://xgame38053.github.io/QR-Studio-Pro">
     <img src="https://img.shields.io/badge/-Website-yellow?style=for-the-badge2" />
+ </a>
+ <a href="https://youtube.com/@XGame-offical">
+    <img src="https://img.shields.io/badge/XGame-Youtube-red?logo=youtube" />
