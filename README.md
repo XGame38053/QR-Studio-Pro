@@ -12,5 +12,5 @@
   </a>
   <img src="https://img.shields.io/github/downloads/XGame38053/QR-Studio-Pro/total?style=flat-square&label=downloads" alt="Total Downloads" />
   </a>
-  <img src="https://img.shields.io/badge/platform-Windows-blue?style=flat-square" alt="Windows" />
+  <img src="https://img.shields.io/badge/platform-Windows-blue?style=flat-square" alt="Windows, MacOS, Linux" />
 </p>
