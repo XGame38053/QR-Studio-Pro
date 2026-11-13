@@ -13,5 +13,6 @@
   <img src="https://img.shields.io/badge/platform-Windows, MacOS, Linux-blue?style=circle-square" alt="Windows, MacOS, Linux" />
 </p>
 <div align="center">
-<a href="https://github.com/XGame38053/QR-Studio-Pro/releases/download/latest/QR.studio.Pro.html">
+                                  <!-- Change this to v(current version)⬇️ -->
+<a href="https://github.com/XGame38053/QR-Studio-Pro/releases/download/v1.2/QR.studio.Pro.html">
     <img src="https://img.shields.io/badge/Download-HTML-brightgreen?style=for-the-badge-logoSize10" />
