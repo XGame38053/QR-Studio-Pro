@@ -17,5 +17,5 @@
 <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/download/v1.2/QR-studio-Pro.html">
     <img src="https://img.shields.io/badge/Download-HTML-brightgreen?style=for-the-badge-logoSize10" />
 </a>
-<a href="https://github.com/XGame38053/QR-Studio-Pro/releases/download/v1.2/QR-studio-Pro.html">
-    <img src="https://img.shields.io/badge/-Website-blue?style=for-the-badge" />
+<a href="https://xgame38053.github.io/QR-Studio-Pro">
+    <img src="https://img.shields.io/badge/-Website-yellow?style=for-the-badge2" />
