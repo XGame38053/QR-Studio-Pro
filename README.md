@@ -10,8 +10,6 @@
     <img src="https://img.shields.io/github/v/release/XGame38053/QR-Studio-Pro?style=flat-square" alt="Latest Release" />
   </a>
   <img src="https://img.shields.io/github/downloads/6E6B/voxel/total?style=flat-square&label=downloads" alt="Total Downloads" />
-  <a href="LICENSE">
-    <img src="https://img.shields.io/github/license/6E6B/voxel?style=flat-square" alt="License" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows-blue?style=flat-square" alt="Windows" />
 </p>
