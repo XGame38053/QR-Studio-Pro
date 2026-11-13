@@ -8,9 +8,9 @@
 </p>
 <p align="center">
   <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/tag/v1.2">
-    <img src="https://img.shields.io/github/v/release/XGame38053/QR-Studio-Pro?style=flat-square" alt="Latest Release" />
+    <img src="https://img.shields.io/github/v/release/XGame38053/QR-Studio-Pro?style=circle-square" alt="Latest Release" />
   </a>
-  <img src="https://img.shields.io/github/downloads/XGame38053/QR-Studio-Pro/total?style=flat-square&label=downloads" alt="Total Downloads" />
+  <img src="https://img.shields.io/github/downloads/XGame38053/QR-Studio-Pro/total?style=circle-square&label=downloads" alt="Total Downloads" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows, MacOS, Linux-blue?style=flat-square" alt="Windows, MacOS, Linux" />
 </p>
