@@ -14,4 +14,4 @@
 </p>
 <div align="center">
 <a href="https://github.com/XGame38053/QR-Studio-Pro/releases/latest">
-    <img src="https://img.shields.io/badge/Download-HTML-brightgreen?style=for-the-badge-logoSize10" />
+    <img src="https://img.shields.io/badge/-Download-brightgreen?style=for-the-badge-logoSize10" />
