@@ -14,3 +14,4 @@
   </a>
   <img src="https://img.shields.io/badge/platform-Windows, MacOS, Linux-blue?style=circle-square" alt="Windows, MacOS, Linux" />
 </p>
+[![Текст на кнопке](https://shields.io)](https://example.com)
